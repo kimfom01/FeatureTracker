@@ -1,4 +1,5 @@
 using FeatureTracker.Data;
+using FeatureTracker.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,7 @@ builder.Services.AddDbContext<FeatureDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("FeatureDb"));
 });
+builder.Services.AddScoped<IFeatureRepository, FeatureRepository>();
 
 var app = builder.Build();
 
