@@ -1,5 +1,5 @@
-using FeatureTracker.Data;
 using FeatureTracker.Models;
+using FeatureTracker.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -7,18 +7,18 @@ namespace FeatureTracker.Pages.Features
 {
     public class Detail : PageModel
     {
-        private readonly FeatureDbContext _dbContext;
+        private readonly IFeatureRepository _featureRepository;
 
         public Feature Feature { get; set; }
 
-        public Detail(FeatureDbContext dbContext)
+        public Detail(IFeatureRepository featureRepository)
         {
-            _dbContext = dbContext;
+            _featureRepository = featureRepository;
         }
 
         public async Task OnGet(int id)
         {
-            Feature = await _dbContext.Features.FindAsync(id);
+            Feature = await _featureRepository.FindAsync(id);
         }
 
         public async Task<IActionResult> OnPost(int id)
@@ -30,11 +30,11 @@ namespace FeatureTracker.Pages.Features
 
         private async Task CompleteFeature(int id)
         {
-            var feature = _dbContext.Features.First(f => f.Id == id);
+            var feature = await _featureRepository.FindAsync(id);
 
             feature.Completed = DateTime.Now;
 
-            await _dbContext.SaveChangesAsync();
+            await _featureRepository.SaveChangesAsync();
         }
     }
 }

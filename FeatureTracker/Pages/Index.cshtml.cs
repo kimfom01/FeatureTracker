@@ -1,29 +1,27 @@
-﻿using FeatureTracker.Data;
-using FeatureTracker.Models;
+﻿using FeatureTracker.Models;
+using FeatureTracker.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 
 namespace FeatureTracker.Pages;
 
 public class IndexModel : PageModel
 {
-    private readonly FeatureDbContext _dbContext;
+    private readonly IFeatureRepository _featureRepository;
+
+    public IndexModel(IFeatureRepository featureRepository)
+    {
+        _featureRepository = featureRepository;
+    }
 
     [BindProperty]
     public IEnumerable<Feature> Features { get; set; } = Enumerable.Empty<Feature>();
 
-    public IndexModel(FeatureDbContext dbContext)
+    public void OnGet()
     {
-        _dbContext = dbContext;
-    }
-
-    public async Task OnGet()
-    {
-        Features = await _dbContext.Features
+        Features = _featureRepository.GetAll()
             .Where(f => f.Completed == null)
             .OrderByDescending(f => f.Priority)
-            .ThenByDescending(f => f.Created)
-            .ToListAsync();
+            .ThenByDescending(f => f.Created);
     }
 }

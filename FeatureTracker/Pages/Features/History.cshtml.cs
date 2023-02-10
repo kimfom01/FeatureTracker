@@ -1,28 +1,28 @@
-using FeatureTracker.Data;
 using FeatureTracker.Models;
+using FeatureTracker.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 
 namespace FeatureTracker.Pages.Features;
 
 public class History : PageModel
 {
-    private readonly FeatureDbContext _dbContext;
+    private readonly IFeatureRepository _featureRepository;
 
     [BindProperty]
     public IEnumerable<Feature> Features { get; set; } = Enumerable.Empty<Feature>();
 
-    public History(FeatureDbContext dbContext)
+    public History(IFeatureRepository featureRepository)
     {
-        _dbContext = dbContext;
+        _featureRepository = featureRepository;
     }
 
-    public async Task OnGet()
+    public void OnGet()
     {
-        Features = await _dbContext.Features
+        var features = _featureRepository.GetAll();
+
+        Features = _featureRepository.GetAll()
             .Where(f => f.Completed != null)
-            .OrderByDescending(f => f.Completed)
-            .ToListAsync();
+            .OrderByDescending(f => f.Completed);
     }
 }
