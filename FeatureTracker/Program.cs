@@ -1,5 +1,5 @@
-using FeatureTracker.Data;
-using FeatureTracker.Repositories;
+using Data.Context;
+using Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
