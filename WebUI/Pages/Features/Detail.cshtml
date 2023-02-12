@@ -1,0 +1,31 @@
+@page
+@using Humanizer
+@using Data.Extensions
+@model FeatureTracker.Pages.Features.Detail
+@{
+    ViewData["Title"] = "Detail";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="mt-5">
+    @if (Model.Feature is null)
+    {
+        <div class="alert alert-warning" role="alert">Issue not found</div>
+    }
+    else
+    {
+        <div>
+            <h3>@Model.Feature.Title</h3>
+            <div class="mb-2">
+                <span class="@Model.Feature.Priority.ToCssClass() badge bg-info">@Model.Feature.Priority</span>
+                <span class="badge bg-info">@Model.Feature.Created.Humanize()</span>
+            </div>
+            <p>@Model.Feature.Description</p>
+            <form method="post">
+                <input type="hidden" asp-for="Feature.Id" />
+                <button class="btn btn-primary" type="submit">Mark as complete</button>
+            </form>
+        </div>
+    }
+</div>

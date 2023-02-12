@@ -1,0 +1,29 @@
+@page
+@using Data.Models;
+@model FeatureTracker.Pages.Features.NewFeature
+@{
+    ViewData["Title"] = "New Feature";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="mt-5">
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="Feature.Title" class="form-label">Title</label>
+            <input asp-for="Feature.Title" class="form-control" />
+            <span asp-validation-for="Feature.Title" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Feature.Description" class="form-label">Description</label>
+            <textarea asp-for="Feature.Description" class="form-control"></textarea>
+            <span asp-validation-for="Feature.Description" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Feature.Priority" class="form-label">Priority</label>
+            <select asp-for="Feature.Priority" asp-items="Html.GetEnumSelectList<Priority>()"
+                    class="form-select"></select>
+        </div>
+        <button class="wt-20 col-20 btn btn-primary btn-lg">Submit Feature</button>
+    </form>
+</div>

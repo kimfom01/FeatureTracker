@@ -1,0 +1,32 @@
+@page
+@using Data.Extensions
+@using Humanizer
+@model FeatureTracker.Pages.Features.History
+@{
+    ViewData["Title"] = "History";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (!Model.Features.Any())
+{
+    <p class="text-center">There is currently no history to display</p>
+}
+else
+{
+    <div class="row g-0">
+    @foreach (var feature in Model.Features)
+        {
+            <div class="card col-3 m-2">
+                <div class="card-body">
+                    <h5 class="card-title text-truncate">@feature.Title</h5>
+                    <span class="@feature.Priority.ToCssClass()">@feature.Priority</span>
+                </div>
+                <p class="card-body">@feature.Description</p>
+                <div class="card-footer text-muted">
+                    <small>Completed: @feature.Completed.Humanize()</small>
+                </div>
+            </div>
+        }
+    </div>
+}
