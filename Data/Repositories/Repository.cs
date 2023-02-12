@@ -1,7 +1,7 @@
-using FeatureTracker.Data;
+﻿using Data.Context;
 using Microsoft.EntityFrameworkCore;
 
-namespace FeatureTracker.Repositories;
+namespace Data.Repositories;
 
 public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : class
 {
@@ -43,3 +43,4 @@ public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity :
         return await _dbContext.SaveChangesAsync();
     }
 }
+

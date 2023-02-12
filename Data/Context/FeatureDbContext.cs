@@ -1,13 +1,13 @@
-using FeatureTracker.Models;
+﻿using Data.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace FeatureTracker.Data;
+namespace Data.Context;
 
 public class FeatureDbContext : DbContext
 {
     public DbSet<Feature> Features { get; set; }
 
-    public FeatureDbContext(DbContextOptions options) : base(options)
+    public FeatureDbContext(DbContextOptions<FeatureDbContext> options) : base(options)
     {
     }
 

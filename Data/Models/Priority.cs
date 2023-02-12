@@ -1,4 +1,4 @@
-namespace FeatureTracker.Models;
+﻿namespace Data.Models;
 
 public enum Priority
 {
