@@ -1,7 +1,7 @@
-using FeatureTracker.Data;
-using FeatureTracker.Models;
+﻿using Data.Context;
+using Data.Models;
 
-namespace FeatureTracker.Repositories;
+namespace Data.Repositories;
 
 public class FeatureRepository : Repository<Feature>, IFeatureRepository
 {
