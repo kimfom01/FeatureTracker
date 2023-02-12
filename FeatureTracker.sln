@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FeatureTracker", "FeatureTracker\FeatureTracker.csproj", "{5A3DFB5D-BD4C-411B-BDB5-150CF7CFB3F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebUI", "FeatureTracker\WebUI.csproj", "{5A3DFB5D-BD4C-411B-BDB5-150CF7CFB3F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{2A83214C-733E-4D48-B7C8-5F542F92257C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Data", "Data\Data.csproj", "{2A83214C-733E-4D48-B7C8-5F542F92257C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
