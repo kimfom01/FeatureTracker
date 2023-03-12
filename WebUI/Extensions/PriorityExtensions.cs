@@ -1,6 +1,6 @@
-﻿using Data.Models;
+﻿using WebUI.Models;
 
-namespace Data.Extensions;
+namespace WebUI.Extensions;
 
 public static class PriorityExtensions
 {

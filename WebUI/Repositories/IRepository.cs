@@ -1,4 +1,4 @@
-﻿namespace Data.Repositories;
+﻿namespace WebUI.Repositories;
 
 public interface IRepository<TEntity> where TEntity : class
 {

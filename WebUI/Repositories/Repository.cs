@@ -1,7 +1,7 @@
-﻿using Data.Context;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using WebUI.Context;
 
-namespace Data.Repositories;
+namespace WebUI.Repositories;
 
 public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : class
 {

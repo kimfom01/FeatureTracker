@@ -1,7 +1,7 @@
-﻿using Data.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using WebUI.Models;
 
-namespace Data.Context;
+namespace WebUI.Context;
 
 public class FeatureDbContext : DbContext
 {
@@ -15,6 +15,6 @@ public class FeatureDbContext : DbContext
     {
         modelBuilder.Entity<Feature>()
             .Property(f => f.Created)
-            .HasDefaultValueSql("getdate()");
+            .HasDefaultValueSql("now() at time zone 'utc'");
     }
 }

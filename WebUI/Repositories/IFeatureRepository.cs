@@ -1,6 +1,6 @@
-﻿using Data.Models;
+﻿using WebUI.Models;
 
-namespace Data.Repositories;
+namespace WebUI.Repositories;
 
 public interface IFeatureRepository : IRepository<Feature>
 {

@@ -1,4 +1,4 @@
-﻿namespace Data.Models;
+﻿namespace WebUI.Models;
 
 public class Feature
 {

@@ -1,7 +1,7 @@
-﻿using Data.Context;
-using Data.Models;
+﻿using WebUI.Context;
+using WebUI.Models;
 
-namespace Data.Repositories;
+namespace WebUI.Repositories;
 
 public class FeatureRepository : Repository<Feature>, IFeatureRepository
 {

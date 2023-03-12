@@ -1,7 +1,6 @@
-using Microsoft.Extensions.Configuration;
 using Npgsql;
 
-namespace Data.DataHelper;
+namespace WebUI.DataHelper;
 
 public class ExternalDbConnectionHelper
 {
