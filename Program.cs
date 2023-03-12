@@ -7,7 +7,6 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-
 if (builder.Environment.IsDevelopment())
 {
     builder.Services.AddDbContext<FeatureDbContext>(options =>
@@ -22,9 +21,7 @@ else
         options.UseNpgsql(ExternalDbConnectionHelper.GetConnectionString());
     });
 }
-
-builder.Services.AddScoped<IFeatureRepository, FeatureRepository>();
-builder.Services.AddScoped<IClientRepository, ClientRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
