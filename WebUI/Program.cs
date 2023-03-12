@@ -1,7 +1,7 @@
-using Data.Context;
-using Data.DataHelper;
-using Data.Repositories;
 using Microsoft.EntityFrameworkCore;
+using WebUI.Context;
+using WebUI.DataHelper;
+using WebUI.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +26,8 @@ else
 builder.Services.AddScoped<IFeatureRepository, FeatureRepository>();
 
 var app = builder.Build();
+
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
