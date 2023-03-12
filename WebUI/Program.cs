@@ -1,4 +1,5 @@
 using Data.Context;
+using Data.DataHelper;
 using Data.Repositories;
 using Microsoft.EntityFrameworkCore;
 
@@ -6,10 +7,22 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddDbContext<FeatureDbContext>(options =>
+
+if (builder.Environment.IsDevelopment())
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("FeatureDb"));
-});
+    builder.Services.AddDbContext<FeatureDbContext>(options =>
+    {
+        options.UseNpgsql(builder.Configuration.GetConnectionString("FeatureDb"));
+    });
+}
+else
+{
+    builder.Services.AddDbContext<FeatureDbContext>(options =>
+    {
+        options.UseNpgsql(ExternalDbConnectionHelper.GetConnectionString());
+    });
+}
+
 builder.Services.AddScoped<IFeatureRepository, FeatureRepository>();
 
 var app = builder.Build();
