@@ -5,18 +5,18 @@ namespace ProjectManager.Repositories;
 
 public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : class
 {
-    private readonly FeatureDbContext _dbContext;
+    protected readonly FeatureDbContext DbContext;
     private readonly DbSet<TEntity> _dbSet;
 
     public Repository(FeatureDbContext dbContext)
     {
-        _dbContext = dbContext;
+        DbContext = dbContext;
         _dbSet = dbContext.Set<TEntity>();
     }
 
     public virtual async Task AddAsync(TEntity entity)
     {
-        await _dbContext.AddAsync(entity);
+        await DbContext.AddAsync(entity);
     }
 
     public virtual IEnumerable<TEntity> GetAll()
@@ -33,14 +33,9 @@ public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity :
 
     public virtual Task UpdateAsync(TEntity entity)
     {
-        _dbContext.Entry(entity).State = EntityState.Modified;
+        DbContext.Entry(entity).State = EntityState.Modified;
 
         return Task.CompletedTask;
-    }
-
-    public virtual async Task<int> SaveChangesAsync()
-    {
-        return await _dbContext.SaveChangesAsync();
     }
 }
 
