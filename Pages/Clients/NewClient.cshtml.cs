@@ -7,11 +7,11 @@ namespace ProjectManager.Pages.Clients;
 
 public class NewClient : PageModel
 {
-    private readonly IClientRepository _clientRepository;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public NewClient(IClientRepository clientRepository)
+    public NewClient(IUnitOfWork unitOfWork)
     {
-        _clientRepository = clientRepository;
+        _unitOfWork = unitOfWork;
     }
     
     [BindProperty] 
@@ -24,8 +24,8 @@ public class NewClient : PageModel
             return Page();
         }
 
-        await _clientRepository.AddAsync(Client);
-        await _clientRepository.SaveChangesAsync();
+        await _unitOfWork.Clients.AddAsync(Client);
+        await _unitOfWork.SaveChanges();
 
         return RedirectToPage("/Clients/ManageClient");
     }

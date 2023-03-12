@@ -7,11 +7,11 @@ namespace ProjectManager.Pages.Clients;
 
 public class ManageClient : PageModel
 {
-    private readonly IClientRepository _clientRepository;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public ManageClient(IClientRepository clientRepository)
+    public ManageClient(IUnitOfWork unitOfWork)
     {
-        _clientRepository = clientRepository;
+        _unitOfWork = unitOfWork;
     }
 
     [BindProperty]
@@ -19,6 +19,6 @@ public class ManageClient : PageModel
     
     public void OnGet()
     {
-        Clients = _clientRepository.GetAll();
+        Clients = _unitOfWork.Clients.GetAll();
     }
 }

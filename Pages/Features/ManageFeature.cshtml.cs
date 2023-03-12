@@ -7,11 +7,11 @@ namespace ProjectManager.Pages.Features;
 
 public class ManageFeature : PageModel
 {
-    private readonly IFeatureRepository _featureRepository;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public ManageFeature(IFeatureRepository featureRepository)
+    public ManageFeature(IUnitOfWork unitOfWork)
     {
-        _featureRepository = featureRepository;
+        _unitOfWork = unitOfWork;
     }
 
     [BindProperty]
@@ -19,7 +19,7 @@ public class ManageFeature : PageModel
 
     public void OnGet()
     {
-        Features = _featureRepository.GetAll()
+        Features = _unitOfWork.Features.GetAll()
             .Where(f => f.Completed == null)
             .OrderByDescending(f => f.Priority)
             .ThenByDescending(f => f.Created);

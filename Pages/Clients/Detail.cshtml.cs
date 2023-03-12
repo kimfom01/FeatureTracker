@@ -6,17 +6,17 @@ namespace ProjectManager.Pages.Clients;
 
 public class Detail : PageModel
 {
-    private readonly IClientRepository _clientRepository;
+    private readonly IUnitOfWork _unitOfWork;
 
-    public Detail(IClientRepository clientRepository)
+    public Detail(IUnitOfWork unitOfWork)
     {
-        _clientRepository = clientRepository;
+        _unitOfWork = unitOfWork;
     }
 
     public Client? Client { get; set; }
     
     public async Task OnGet(int id)
     {
-        Client = await _clientRepository.FindAsync(id);
+        Client = await _unitOfWork.Clients.FindAsync(id);
     }
 }

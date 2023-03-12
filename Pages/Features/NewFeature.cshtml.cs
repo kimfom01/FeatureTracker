@@ -7,14 +7,14 @@ namespace ProjectManager.Pages.Features;
 
 public class NewFeature : PageModel
 {
-    private readonly IFeatureRepository _featureRepository;
+    private readonly IUnitOfWork _unitOfWork;
 
     [BindProperty]
     public Feature Feature { get; set; }
 
-    public NewFeature(IFeatureRepository featureRepository)
+    public NewFeature(IUnitOfWork unitOfWork)
     {
-        _featureRepository = featureRepository;
+        _unitOfWork = unitOfWork;
     }
 
     public async Task<IActionResult> OnPost()
@@ -24,8 +24,8 @@ public class NewFeature : PageModel
             return Page();
         }
 
-        await _featureRepository.AddAsync(Feature);
-        await _featureRepository.SaveChangesAsync();
+        await _unitOfWork.Features.AddAsync(Feature);
+        await _unitOfWork.SaveChanges();
 
         return RedirectToPage("/Features/ManageFeature");
     }

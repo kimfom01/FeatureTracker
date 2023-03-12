@@ -7,18 +7,18 @@ namespace ProjectManager.Pages.Features;
 
 public class Detail : PageModel
 {
-    private readonly IFeatureRepository _featureRepository;
+    private readonly IUnitOfWork _unitOfWork;
 
     public Feature? Feature { get; set; }
 
-    public Detail(IFeatureRepository featureRepository)
+    public Detail(IUnitOfWork unitOfWork)
     {
-        _featureRepository = featureRepository;
+        _unitOfWork = unitOfWork;
     }
 
     public async Task OnGet(int id)
     {
-        Feature = await _featureRepository.FindAsync(id);
+        Feature = await _unitOfWork.Features.FindAsync(id);
     }
 
     public async Task<IActionResult> OnPost(int id)
@@ -30,13 +30,13 @@ public class Detail : PageModel
 
     private async Task CompleteFeature(int id)
     {
-        var feature = await _featureRepository.FindAsync(id);
+        var feature = await _unitOfWork.Features.FindAsync(id);
 
         if (feature is not null)
         {
             feature.Completed = DateTime.Now;
             
-            await _featureRepository.SaveChangesAsync();
+            await _unitOfWork.SaveChanges();
         }
     }
 }

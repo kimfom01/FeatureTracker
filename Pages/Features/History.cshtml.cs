@@ -7,21 +7,19 @@ namespace ProjectManager.Pages.Features;
 
 public class History : PageModel
 {
-    private readonly IFeatureRepository _featureRepository;
+    private readonly IUnitOfWork _unitOfWork;
 
     [BindProperty]
     public IEnumerable<Feature>? Features { get; set; }
 
-    public History(IFeatureRepository featureRepository)
+    public History(IUnitOfWork unitOfWork)
     {
-        _featureRepository = featureRepository;
+        _unitOfWork = unitOfWork;
     }
 
     public void OnGet()
     {
-        var features = _featureRepository.GetAll();
-
-        Features = _featureRepository.GetAll()
+        Features = _unitOfWork.Features.GetAll()
             .Where(f => f.Completed != null)
             .OrderByDescending(f => f.Completed);
     }
