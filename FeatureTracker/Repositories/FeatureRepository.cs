@@ -1,7 +1,7 @@
-﻿using WebUI.Context;
-using WebUI.Models;
+﻿using FeatureTracker.Context;
+using FeatureTracker.Models;
 
-namespace WebUI.Repositories;
+namespace FeatureTracker.Repositories;
 
 public class FeatureRepository : Repository<Feature>, IFeatureRepository
 {

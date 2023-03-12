@@ -5,6 +5,8 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>85cdd453-de93-4097-ae0e-f986b9c0d7d9</UserSecretsId>
+    <AssemblyName>FeatureTracker</AssemblyName>
+    <RootNamespace>FeatureTracker</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

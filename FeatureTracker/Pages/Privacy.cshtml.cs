@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace WebUI.Pages;
+namespace FeatureTracker.Pages;
 
 public class PrivacyModel : PageModel
 {

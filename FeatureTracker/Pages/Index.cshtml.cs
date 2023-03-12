@@ -1,9 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FeatureTracker.Models;
+using FeatureTracker.Repositories;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using WebUI.Models;
-using WebUI.Repositories;
 
-namespace WebUI.Pages;
+namespace FeatureTracker.Pages;
 
 public class IndexModel : PageModel
 {

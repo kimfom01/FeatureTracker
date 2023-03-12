@@ -1,7 +1,7 @@
+using FeatureTracker.Context;
+using FeatureTracker.Helper;
+using FeatureTracker.Repositories;
 using Microsoft.EntityFrameworkCore;
-using WebUI.Context;
-using WebUI.DataHelper;
-using WebUI.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -28,6 +28,13 @@ builder.Services.AddScoped<IFeatureRepository, FeatureRepository>();
 var app = builder.Build();
 
 AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
+if (app.Environment.IsProduction())
+{
+    // Apply pending migrations on database
+    var scope = app.Services.CreateScope();
+    await MigrationHelper.ManageDataAsync(scope.ServiceProvider);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

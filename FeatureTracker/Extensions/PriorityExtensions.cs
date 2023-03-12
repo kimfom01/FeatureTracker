@@ -1,6 +1,6 @@
-﻿using WebUI.Models;
+﻿using FeatureTracker.Models;
 
-namespace WebUI.Extensions;
+namespace FeatureTracker.Extensions;
 
 public static class PriorityExtensions
 {

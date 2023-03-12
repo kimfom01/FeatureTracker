@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using WebUI.Context;
+﻿using FeatureTracker.Context;
+using Microsoft.EntityFrameworkCore;
 
-namespace WebUI.Repositories;
+namespace FeatureTracker.Repositories;
 
 public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : class
 {

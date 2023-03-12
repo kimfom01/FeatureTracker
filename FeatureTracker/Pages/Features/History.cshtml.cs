@@ -1,9 +1,9 @@
+using FeatureTracker.Models;
+using FeatureTracker.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using WebUI.Models;
-using WebUI.Repositories;
 
-namespace WebUI.Pages.Features;
+namespace FeatureTracker.Pages.Features;
 
 public class History : PageModel
 {

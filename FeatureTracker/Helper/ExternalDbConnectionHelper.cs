@@ -1,6 +1,6 @@
 using Npgsql;
 
-namespace WebUI.DataHelper;
+namespace FeatureTracker.Helper;
 
 public class ExternalDbConnectionHelper
 {

@@ -1,4 +1,4 @@
-﻿namespace WebUI.Models;
+﻿namespace FeatureTracker.Models;
 
 public class Feature
 {

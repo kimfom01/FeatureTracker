@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using WebUI.Models;
+﻿using FeatureTracker.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace WebUI.Context;
+namespace FeatureTracker.Context;
 
 public class FeatureDbContext : DbContext
 {
