@@ -24,7 +24,7 @@ public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity :
         return _dbSet.AsNoTracking<TEntity>();
     }
 
-    public async Task<TEntity> FindAsync(int id)
+    public async Task<TEntity?> FindAsync(int id)
     {
         var entity = await _dbSet.FindAsync(id);
 
