@@ -1,40 +1,39 @@
-using FeatureTracker.Models;
-using FeatureTracker.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using ProjectManager.Models;
+using ProjectManager.Repositories;
 
-namespace FeatureTracker.Pages.Features
+namespace ProjectManager.Pages.Features;
+
+public class Detail : PageModel
 {
-    public class Detail : PageModel
+    private readonly IFeatureRepository _featureRepository;
+
+    public Feature Feature { get; set; }
+
+    public Detail(IFeatureRepository featureRepository)
     {
-        private readonly IFeatureRepository _featureRepository;
+        _featureRepository = featureRepository;
+    }
 
-        public Feature Feature { get; set; }
+    public async Task OnGet(int id)
+    {
+        Feature = await _featureRepository.FindAsync(id);
+    }
 
-        public Detail(IFeatureRepository featureRepository)
-        {
-            _featureRepository = featureRepository;
-        }
+    public async Task<IActionResult> OnPost(int id)
+    {
+        await CompleteFeature(id);
 
-        public async Task OnGet(int id)
-        {
-            Feature = await _featureRepository.FindAsync(id);
-        }
+        return RedirectToPage("../Index");
+    }
 
-        public async Task<IActionResult> OnPost(int id)
-        {
-            await CompleteFeature(id);
+    private async Task CompleteFeature(int id)
+    {
+        var feature = await _featureRepository.FindAsync(id);
 
-            return RedirectToPage("../Index");
-        }
+        feature.Completed = DateTime.Now;
 
-        private async Task CompleteFeature(int id)
-        {
-            var feature = await _featureRepository.FindAsync(id);
-
-            feature.Completed = DateTime.Now;
-
-            await _featureRepository.SaveChangesAsync();
-        }
+        await _featureRepository.SaveChangesAsync();
     }
 }

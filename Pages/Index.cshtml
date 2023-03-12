@@ -1,41 +1,16 @@
 ﻿@page
-@using Humanizer
-@using FeatureTracker.Extensions
-@model IndexModel
+@model ProjectManager.Pages.IndexModel
 @{
     ViewData["Title"] = "Home page";
 }
 
-<h1>Feature Tracker</h1>
+<h1>Project Manager</h1>
 
-<div id="new-feature">
-    <a class="btn btn-primary" href="/Features/NewFeature">+ Add New Feature</a>
+<div id="manage-feature">
+    <a class="btn btn-primary" href="/Features/ManageFeature">Manage Features</a>
 </div>
 
 
-<div class="m-3">
-    @if (!Model.Features.Any())
-    {
-        <p class="text-center">There are currently no features available</p>
-    }
-    else
-    {
-        <div class="row g-0">
-            @foreach (var feature in Model.Features)
-            {
-                <div class="card col-3 m-2">
-                    <div class="card-body">
-                        <h5 class="card-title text-truncate">
-                            <a asp-page="/Features/Detail" asp-route-id="@feature.Id"
-                                class="link-dark text-decoration-none">@feature.Title</a>
-                        </h5>
-                        <span class="@feature.Priority.ToCssClass()">@feature.Priority</span>
-                    </div>
-                    <div class="card-footer text-muted">
-                        <small>Created: @feature.Created.Humanize()</small>
-                    </div>
-                </div>
-            }
-        </div>
-    }
+<div class="text-center">
+    <p>Welcome to the feature tracker</p>
 </div>

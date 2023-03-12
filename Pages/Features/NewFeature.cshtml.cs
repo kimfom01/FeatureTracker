@@ -1,9 +1,9 @@
-using FeatureTracker.Models;
-using FeatureTracker.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using ProjectManager.Models;
+using ProjectManager.Repositories;
 
-namespace FeatureTracker.Pages.Features;
+namespace ProjectManager.Pages.Features;
 
 public class NewFeature : PageModel
 {

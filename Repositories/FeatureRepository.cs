@@ -1,7 +1,7 @@
-﻿using FeatureTracker.Context;
-using FeatureTracker.Models;
+﻿using ProjectManager.Context;
+using ProjectManager.Models;
 
-namespace FeatureTracker.Repositories;
+namespace ProjectManager.Repositories;
 
 public class FeatureRepository : Repository<Feature>, IFeatureRepository
 {

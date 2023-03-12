@@ -1,7 +1,7 @@
-﻿using FeatureTracker.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using ProjectManager.Models;
 
-namespace FeatureTracker.Context;
+namespace ProjectManager.Context;
 
 public class FeatureDbContext : DbContext
 {

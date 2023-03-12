@@ -1,6 +1,6 @@
-﻿using FeatureTracker.Models;
+﻿using ProjectManager.Models;
 
-namespace FeatureTracker.Repositories;
+namespace ProjectManager.Repositories;
 
 public interface IFeatureRepository : IRepository<Feature>
 {

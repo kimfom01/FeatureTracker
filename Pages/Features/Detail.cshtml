@@ -1,7 +1,8 @@
 @page
 @using Humanizer
-@using FeatureTracker.Extensions
-@model Detail
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using ProjectManager.Extensions
+@model ProjectManager.Pages.Features.Detail
 @{
     ViewData["Title"] = "Detail";
 }
@@ -11,7 +12,7 @@
 <div class="mt-5">
     @if (Model.Feature is null)
     {
-        <div class="alert alert-warning" role="alert">Issue not found</div>
+        <div class="alert alert-warning" role="alert">Feature not found</div>
     }
     else
     {

@@ -1,6 +1,6 @@
-using FeatureTracker.Context;
-using FeatureTracker.Helper;
-using FeatureTracker.Repositories;
+using ProjectManager.Context;
+using ProjectManager.Helper;
+using ProjectManager.Repositories;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

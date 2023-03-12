@@ -1,6 +1,6 @@
-﻿using FeatureTracker.Models;
+﻿using ProjectManager.Models;
 
-namespace FeatureTracker.Extensions;
+namespace ProjectManager.Extensions;
 
 public static class PriorityExtensions
 {

@@ -1,7 +1,7 @@
-using FeatureTracker.Context;
 using Microsoft.EntityFrameworkCore;
+using ProjectManager.Context;
 
-namespace FeatureTracker.Helper;
+namespace ProjectManager.Helper;
 
 public static class MigrationHelper
 {

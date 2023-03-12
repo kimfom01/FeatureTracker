@@ -1,6 +1,6 @@
 using Npgsql;
 
-namespace FeatureTracker.Helper;
+namespace ProjectManager.Helper;
 
 public class ExternalDbConnectionHelper
 {

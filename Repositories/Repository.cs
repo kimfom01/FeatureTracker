@@ -1,7 +1,7 @@
-﻿using FeatureTracker.Context;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using ProjectManager.Context;
 
-namespace FeatureTracker.Repositories;
+namespace ProjectManager.Repositories;
 
 public abstract class Repository<TEntity> : IRepository<TEntity> where TEntity : class
 {

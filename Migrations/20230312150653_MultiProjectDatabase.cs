@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace FeatureTracker.Migrations
+namespace ProjectManager.Migrations
 {
     /// <inheritdoc />
     public partial class MultiProjectDatabase : Migration
