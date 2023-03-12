@@ -27,6 +27,6 @@ public class NewFeature : PageModel
         await _featureRepository.AddAsync(Feature);
         await _featureRepository.SaveChangesAsync();
 
-        return RedirectToPage("../Index");
+        return RedirectToPage("/Features/ManageFeature");
     }
 }
