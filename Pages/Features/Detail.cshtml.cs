@@ -9,7 +9,7 @@ public class Detail : PageModel
 {
     private readonly IFeatureRepository _featureRepository;
 
-    public Feature Feature { get; set; }
+    public Feature? Feature { get; set; }
 
     public Detail(IFeatureRepository featureRepository)
     {
@@ -32,8 +32,11 @@ public class Detail : PageModel
     {
         var feature = await _featureRepository.FindAsync(id);
 
-        feature.Completed = DateTime.Now;
-
-        await _featureRepository.SaveChangesAsync();
+        if (feature is not null)
+        {
+            feature.Completed = DateTime.Now;
+            
+            await _featureRepository.SaveChangesAsync();
+        }
     }
 }

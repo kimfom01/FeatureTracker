@@ -8,7 +8,7 @@
 
 <h1>@ViewData["Title"]</h1>
 
-@if (!Model.Features.Any())
+@if (Model.Features is null)
 {
     <p class="text-center">There is currently no history to display</p>
 }

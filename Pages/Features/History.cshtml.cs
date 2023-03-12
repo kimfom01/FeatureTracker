@@ -10,7 +10,7 @@ public class History : PageModel
     private readonly IFeatureRepository _featureRepository;
 
     [BindProperty]
-    public IEnumerable<Feature> Features { get; set; } = Enumerable.Empty<Feature>();
+    public IEnumerable<Feature>? Features { get; set; }
 
     public History(IFeatureRepository featureRepository)
     {

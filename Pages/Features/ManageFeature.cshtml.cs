@@ -15,7 +15,7 @@ public class ManageFeature : PageModel
     }
 
     [BindProperty]
-    public IEnumerable<Feature> Features { get; set; } = Enumerable.Empty<Feature>();
+    public IEnumerable<Feature>? Features { get; set; }
 
     public void OnGet()
     {
