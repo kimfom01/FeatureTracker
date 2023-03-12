@@ -12,6 +12,6 @@ public class Project
     public DateTime Deadline { get; set; }
 
     public int ClientId { get; set; }
-    public Client Client { get; set; }
-    public ICollection<Feature> Features { get; set; }
+    public Client? Client { get; set; }
+    public ICollection<Feature>? Features { get; set; }
 }
