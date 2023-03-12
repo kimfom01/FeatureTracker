@@ -1,0 +1,34 @@
+@page
+@model ProjectManager.Pages.Clients.ManageClient
+
+@{
+    ViewData["Title"] = "Manage Clients";
+}
+
+<h1>Clients</h1>
+
+<div id="new-client">
+    <a class="btn btn-primary" href="/Clients/NewClient">+ Add New Client</a>
+</div>
+
+<div class="m-3">
+    @if (Model.Clients is null)
+    {
+        <p class="text-center">There are currently no clients available</p>
+    }
+    else
+    {
+        <div class="row g-0">
+            @foreach (var client in Model.Clients)
+            {
+                <div class="card col-3 m-2">
+                    <a asp-page="/Clients/Detail" asp-route-id="@client.Id" class="link-dark text-decoration-none">
+                        <div class="card-body">
+                            <h5 class="card-title text-truncate">@client.Name</h5>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    }
+</div>
