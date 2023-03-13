@@ -1,0 +1,56 @@
+@page
+@using ProjectManager.Models
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model ProjectManager.Pages.Projects.NewProject
+
+@{
+    ViewData["Title"] = "New Project";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="mt-5">
+    <form method="post">
+        <div class="form-group">
+            <label asp-for="Project.ClientId" class="form-label">Client Id</label>
+            <input asp-for="Project.ClientId" class="form-control" />
+            <span asp-validation-for="Project.ClientId" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Project.Title" class="form-label">Title</label>
+            <input asp-for="Project.Title" class="form-control" />
+            <span asp-validation-for="Project.Title" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Project.Description" class="form-label">Description</label>
+            <textarea asp-for="Project.Description" class="form-control"></textarea>
+            <span asp-validation-for="Project.Description" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Project.Priority" class="form-label">Priority</label>
+            <select asp-for="Project.Priority" asp-items="Html.GetEnumSelectList<Priority>()"
+                    class="form-select"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Project.Status" class="form-label">Status</label>
+            <select asp-for="Project.Status" asp-items="Html.GetEnumSelectList<Status>()"
+                    class="form-select"></select>
+        </div>
+        <div class="form-group">
+            <label asp-for="Project.Requirements" class="form-label">Requirements</label>
+            <textarea asp-for="Project.Requirements" class="form-control"></textarea>
+            <span asp-validation-for="Project.Requirements" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Project.Budget" class="form-label">Budget</label>
+            <input asp-for="Project.Budget" class="form-control" />
+            <span asp-validation-for="Project.Budget" class="text text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Project.Deadline" class="form-label">Deadline</label>
+            <input type="datetime-local" value="@DateTime.Now" asp-for="Project.Deadline" class="form-control" />
+            <span asp-validation-for="Project.Deadline" class="text text-danger"></span>
+        </div>
+        <button class="wt-20 col-20 btn btn-primary btn-lg">Submit Project</button>
+    </form>
+</div>

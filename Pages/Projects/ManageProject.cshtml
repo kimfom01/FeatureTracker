@@ -1,0 +1,35 @@
+@page
+@model ProjectManager.Pages.Projects.ManageProject
+
+@{
+    ViewData["Title"] = "Manage Project";
+}
+
+<h1>Projects</h1>
+
+<div id="new-project">
+    <a class="btn btn-primary" href="/Projects/NewProject">+ Add New Project</a>
+</div>
+
+<div class="m-3">
+    @if (Model.Projects is null)
+    {
+        <p class="text-center">There are currently no projects available</p>
+    }
+    else
+    {
+        <div class="row g-0">
+            @foreach (var project in Model.Projects)
+            {
+                <div class="card col-3 m-2">
+                    <a asp-page="/Projects/Detail" asp-route-id="@project.Id" class="link-dark text-decoration-none">
+                        <div class="card-body">
+                            <h5 class="card-title text-truncate">@project.Title</h5>
+                            <p class="card-title text-truncate">@project.Description</p>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    }
+</div>

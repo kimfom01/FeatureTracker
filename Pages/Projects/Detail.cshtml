@@ -1,0 +1,26 @@
+@page
+@using Humanizer
+@model ProjectManager.Pages.Projects.Detail
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="mt-5">
+    @if (Model.Project is null)
+    {
+        <div class="alert alert-warning" role="alert">Project not found</div>
+    }
+    else
+    {
+        <div>
+            <h3>@Model.Project.Title</h3>
+            <p>@Model.Project.Description</p>
+            <p>@Model.Project.Requirements</p>
+            <p>@Model.Project.Budget</p>
+            <p>@Model.Project.Deadline.Humanize()</p>
+        </div>
+    }
+</div>
