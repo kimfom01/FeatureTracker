@@ -1,4 +1,4 @@
-# Feature Tracker
+# Project Manager
 
 <!-- A web app to track implementation of features in a given project. Developed using ASP.NET Core Razor Pages, C# and SQLServer.
 
