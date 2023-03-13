@@ -1,6 +1,6 @@
 # Feature Tracker
 
-A web app to track implementation of features in a given project. Developed using ASP.NET Core Razor Pages, C# and SQLServer.
+<!-- A web app to track implementation of features in a given project. Developed using ASP.NET Core Razor Pages, C# and SQLServer.
 
 ## How To Run
 ### Prerequisites
@@ -44,3 +44,4 @@ A web app to track implementation of features in a given project. Developed usin
 
 ## Resources
 - [x] [EF Core Default Values](https://learn.microsoft.com/en-us/ef/core/modeling/generated-properties?tabs=data-annotations#default-values)
+ -->
